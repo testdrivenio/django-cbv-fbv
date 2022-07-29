@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Task #{{ task.pk }}</h2>
+    <strong>Name: </strong>{{ task.name }}<br>
+    <strong>Description: </strong>{{ task.description }}<br>
+    <strong>Is done: </strong>{% if task.is_done %}&#x2714;&#xFE0F;{% else %}&#x274C;{% endif %}<br>
+    <a href="{% url "task-list" %}">Go back</a> <a href="{% url "task-update" pk=task.pk %}">Update task</a> <a href="{% url "task-delete" pk=task.pk %}">Delete task</a>
+{% endblock %}
